@@ -1,33 +1,38 @@
 pipeline {
-	agent none 
+	agent none {
 		stages {
-			stage('Build') {
 			
-				agent { label 'slave1'}
-				
-					steps {
-						sh '''echo STAGE1: This is a build stage
-							sleep 5 '''
-					}
-					}
-					stage('Test') {
-					
-					agent { label 'slave2'}
-					
-						steps{
-							sh '''echo STAGE2: This is test stage
-									sleep 5 '''
-							}
-					}
-					stage('Deploy') {
-					
-					agent { label 'slave3'}
-					
-					steps{
-								sh '''echo STAGE3: This is deploy stage
-										sleep 5 '''
-								}
-							}
+			stage(BUILD1){
+						agent { label (slave1)}
+						sh ''' echo "this build"
+						sleep 5
+						'''
 						}
-					}
+						
+						
+			stage(DEPLOY1){
+						agent { label (slave2)}
+						sh ''' echo "this DEPLOY "
+						sleep 5
+						'''
+						}
+						
+						
+			stage(TEST1){
+						agent { label (slave3)}
+						sh ''' echo "this TEST"
+						sleep 5
+						'''
+						}
+						
+						
+				}
 				
+				
+				
+				
+				}
+				
+
+
+}
