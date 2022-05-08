@@ -4,7 +4,7 @@ pipeline
 				stages {
 			
 						stage(BUILD1){
-								agent { label (slave1)}
+								agent { label ('slave1')}
 								steps {
 								
 									sh ''' echo "this build"
@@ -15,7 +15,7 @@ pipeline
 						
 						
 						stage(DEPLOY1){
-								agent { label (slave2)}
+								agent { label ('slave2')}
 								steps {
 								
 									sh ''' echo "this DEPLOY "
@@ -26,7 +26,7 @@ pipeline
 						
 						
 						stage(TEST1){
-								agent { label (slave3)}
+								agent { label ('slave3')}
 									steps {
 										sh ''' echo "this TEST"
 											sleep 5
@@ -36,4 +36,7 @@ pipeline
 						}
 						
 						
+					}	
+				
 				}
+	}
