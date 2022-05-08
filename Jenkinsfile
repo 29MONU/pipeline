@@ -1,9 +1,9 @@
-pipeline{
+pipeline {
 
 	agent none	
 		stages {
 			stage(BUILD1){
-				agent { label (slave1)}
+				agent { label (slave1) }
 					stage {
 							sh ''' echo "this is build "
 									sleep 5 '''
@@ -19,8 +19,8 @@ pipeline{
 							}
 							}
 							
-			stage (TEST1){
-				agent {label (slave3)}
+			stage (TEST1) {
+				agent { label (slave3) } 
 					stage {
 							sh '''echo "this is test "
 									sleep 5 '''
