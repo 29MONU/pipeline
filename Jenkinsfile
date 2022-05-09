@@ -18,8 +18,12 @@ pipeline {
 								}
 								}
 				stage('TEST and DEPLOY') {
+									input {
+					  message 'press yes to continue'
+					}
+
 					parallel{
-				
+							
 				
 												stage('DEPLOY1') {
 												
