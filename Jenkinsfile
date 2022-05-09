@@ -13,33 +13,36 @@ pipeline {
 								
 								}
 								}
-		
+				stage('TEST and DEPLOY') {
+					parallel{
 				
-				stage('DEPLOY1') {
 				
-									agent { label 'slave3' }
-										steps{
-										
-										sh ''' echo "this is deploy stage "
-												sleep 5
-												'''
+												stage('DEPLOY1') {
 												
-											}
-									}
-									
-									
-				stage('TEST1') {
-				
-								agent { label 'slave3'}
-									steps{
-											sh ''' echo "this is test stage"
-											sleep 5
-											'''
-											
-											}
+																	agent { label 'slave3' }
+																		steps{
+																		
+																		sh ''' echo "this is deploy stage "
+																				sleep 5
+																				'''
+																				
+																			}
+																	}
+																	
+																	
+												stage('TEST1') {
+												
+																agent { label 'slave3'}
+																	steps{
+																			sh ''' echo "this is test stage"
+																			sleep 5
+																			'''
+																			
+																			}
+								
 								}
-				
-				
+					}
+				}
 				}
 				
 
