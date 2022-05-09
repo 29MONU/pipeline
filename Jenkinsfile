@@ -1,5 +1,5 @@
 @Library('printuser')_
-									getUser 'MONICA' 'TRAINEE'
+									getUser 'MONICA', 'TRAINEE'
 pipeline {
 	agent {label 'master' }
 							
