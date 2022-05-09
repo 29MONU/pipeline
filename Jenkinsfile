@@ -1,5 +1,5 @@
 pipeline {
-	agent {label 'slave2' }
+	agent {label 'slave1' }
 							parameters {
 			  string defaultValue: 'test', description: 'which env should be build need to deploy', name: 'TEST'
 			}
