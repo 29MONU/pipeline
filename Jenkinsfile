@@ -1,7 +1,7 @@
 pipeline {
 	agent {label 'slave2' }
-				environment {
-			  TEST = "test"
+							parameters {
+			  string defaultValue: 'test', description: 'which env should be build need to deploy', name: 'TEST'
 			}
 
 		stages {
@@ -10,10 +10,11 @@ pipeline {
 								
 								agent {label 'slave1'}
 								steps{
-									sh ''' echo "this is build stage : $TEST "
-											sleep 5
+									catchError(buildResult : 'SUCCESS' , stageResult : 'FAILURE'){
+									sh ''' exit 0
+									
 											'''
-											
+									}		
 								
 								}
 								}
