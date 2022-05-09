@@ -1,12 +1,16 @@
 pipeline {
 	agent {label 'slave2' }
+				environment {
+			  TEST = "test"
+			}
+
 		stages {
 		
 				stage('BUILD1') {
 								
 								agent {label 'slave1'}
 								steps{
-									sh ''' echo "this is build stage "
+									sh ''' echo "this is build stage : $TEST "
 											sleep 5
 											'''
 											
@@ -22,7 +26,7 @@ pipeline {
 																	agent { label 'slave3' }
 																		steps{
 																		
-																		sh ''' echo "this is deploy stage "
+																		sh ''' echo "this is deploy stage : $TEST "
 																				sleep 5
 																				'''
 																				
@@ -34,7 +38,7 @@ pipeline {
 												
 																agent { label 'slave3'}
 																	steps{
-																			sh ''' echo "this is test stage"
+																			sh ''' echo "this is test stage : $TEST"
 																			sleep 5
 																			'''
 																			
