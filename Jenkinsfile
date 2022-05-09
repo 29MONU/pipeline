@@ -8,7 +8,8 @@ pipeline {
 								agent {label 'slave1'}
 								steps{
 									catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-									sh ''' exit 0
+									sh ''' 
+									getUser 'MONICA' 'TRAINEE'
 									
 											'''
 									}		
