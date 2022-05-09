@@ -1,3 +1,5 @@
+@Library('printuser')_
+									getUser 'MONICA' 'TRAINEE'
 pipeline {
 	agent {label 'master' }
 							
@@ -9,7 +11,7 @@ pipeline {
 								steps{
 									catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
 									sh ''' 
-									getUser 'MONICA' 'TRAINEE'
+
 									
 											'''
 									}		
