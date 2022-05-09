@@ -1,16 +1,13 @@
 pipeline {
 	agent {label 'master' }
-							parameters {
-			  string defaultValue: 'test', description: 'which env should be build need to deploy', name: 'TEST'
-			}
-
+							
 		stages {
 		
 				stage('BUILD1') {
 								
 								agent {label 'slave1'}
 								steps{
-									catchError(buildResult : 'SUCCESS' , stageResult : 'FAILURE'){
+									catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
 									sh ''' exit 0
 									
 											'''
